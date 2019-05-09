@@ -1,7 +1,5 @@
 'use strict';
 
-const stripe = require('stripe')('sk_test_LwMRqaMrMi9VFmwXZmtKql6N00i1acswDX');
-
 /**
  * Orders.js controller
  *
@@ -55,26 +53,7 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    const { address, amount, brews, postalCode, token, city } = ctx.request.body;
-
-    const charge = await Stripe.charges.create({
-      amount: amount * 100,
-      currency: 'usd',
-      description: `Order ${new Date(Date.now())} - User ${ctx.state.user._id}`,
-      source: token
-    });
-
-    // Create order in database
-    const order = await strapi.services.order.add({
-      user: ctx.state.user._id,
-      address,
-      amount,
-      brews,
-      postalCode,
-      city
-    });
-
-    return order;
+    return strapi.services.orders.add(ctx.request.body);
   },
 
   /**

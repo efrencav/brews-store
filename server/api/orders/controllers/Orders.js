@@ -61,7 +61,7 @@ module.exports = {
     const charge = await Stripe.charges.create({
       amount: amount * 100,
       currency: 'usd',
-      descrition: `Order ${new Date(Date.now())} - User ${ctx.state.user._id}`,
+      description: `Order ${new Date(Date.now())} - User ${ctx.state.user._id}`,
       source: token
     });
     // return strapi.services.orders.add(ctx.request.body);

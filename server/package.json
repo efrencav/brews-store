@@ -22,7 +22,7 @@
   "dependencies": {
     "koa-compose": "^4.1.0",
     "lodash": "^4.17.11",
-    "strapi": "3.0.0-alpha.26.2",
+    "strapi": "3.6.8",
     "strapi-email-sendgrid": "^3.0.0-alpha.14.5",
     "strapi-hook-mongoose": "3.0.0-alpha.26.2",
     "strapi-utils": "3.0.0-alpha.26.2",
